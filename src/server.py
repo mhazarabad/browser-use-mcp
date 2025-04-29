@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger("browser-use-mcp")
 
 # Initialize FastMCP server
-mcp = FastMCP("browser-use")
+mcp = FastMCP("browser_use")
 
 # Pydantic models for tool and prompt definitions
 class ToolDefinition(BaseModel):
@@ -60,44 +60,44 @@ class HttpMethod(enum.Enum):
 class Tool(enum.Enum):
     """Enumeration of MCP tool definitions."""
     RUN_TASK = ToolDefinition(
-        name="run task",
+        name="run_task",
         description=textwrap.dedent("""
             Run a browser automation task with instructions and wait for completion.
             Returns the task's final output when complete.
         """).strip()
     )
     GET_TASK = ToolDefinition(
-        name="get task",
+        name="get_task",
         description=textwrap.dedent("""
             Retrieve details of a browser automation task by its ID, including steps and output.
         """).strip()
     )
     GET_TASK_STATUS = ToolDefinition(
-        name="get task status",
+        name="get_task_status",
         description=textwrap.dedent("""
             Check the current status of a browser automation task without retrieving full details.
         """).strip()
     )
     STOP_TASK = ToolDefinition(
-        name="stop task",
+        name="stop_task",
         description=textwrap.dedent("""
             Stop a running browser automation task. A stopped task cannot be resumed.
         """).strip()
     )
     PAUSE_TASK = ToolDefinition(
-        name="pause task",
+        name="pause_task",
         description=textwrap.dedent("""
             Pause a running browser automation task so it can be resumed later using the resume_task tool.
         """).strip()
     )
     RESUME_TASK = ToolDefinition(
-        name="resume task",
+        name="resume_task",
         description=textwrap.dedent("""
             Resume a previously paused browser automation task to continue execution from where it left off.
         """).strip()
     )
     LIST_TASKS = ToolDefinition(
-        name="list tasks",
+        name="list_tasks",
         description=textwrap.dedent("""
             List all browser automation tasks in your account with their current status.
             Use get_task to retrieve full details for a specific task.
@@ -113,7 +113,7 @@ class Tool(enum.Enum):
 class PromptName(enum.Enum):
     """Enumeration of MCP prompt definitions."""
     BROWSER_USE_TASK = PromptDefinition(
-        name="browser-use-task",
+        name="browser_use_task",
         description=textwrap.dedent("""
             Run a Browser Use automation task and receive structured information about steps and results
             as a conversational context for the AI.

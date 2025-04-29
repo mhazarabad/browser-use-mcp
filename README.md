@@ -49,7 +49,7 @@ uv run /path/to/browser-use-mcp/src/server.py --api-key YOUR_BROWSER_USE_API_KEY
 
 ## Tools
 
-1. `run_task`
+1. `run task`
    - Run a Browser Use automation task with instructions and wait for completion
    - Input:
      - `instructions` (string): Instructions for the browser automation task
@@ -57,41 +57,41 @@ uv run /path/to/browser-use-mcp/src/server.py --api-key YOUR_BROWSER_USE_API_KEY
      - `parameters` (object, optional): Additional parameters for the task
    - Returns: Information about the created task including final output if wait_for_completion is True
 
-2. `get_task`
+2. `get task`
    - Get details of a Browser Use task by ID
    - Input:
      - `task_id` (string): ID of the task to retrieve
    - Returns: Complete task information including steps and output
 
-3. `get_task_status`
+3. `get task status`
    - Get the status of a Browser Use task
    - Input:
      - `task_id` (string): ID of the task to check
    - Returns: Current status of the task
 
-4. `stop_task`
+4. `stop task`
    - Stop a running Browser Use task
    - Input:
      - `task_id` (string): ID of the task to stop
    - Returns: Confirmation of task being stopped
 
-5. `pause_task`
+5. `pause task`
    - Pause a running Browser Use task
    - Input:
      - `task_id` (string): ID of the task to pause
    - Returns: Confirmation of task being paused
 
-6. `resume_task`
+6. `resume task`
    - Resume a paused Browser Use task
    - Input:
      - `task_id` (string): ID of the task to resume
    - Returns: Confirmation of task being resumed
 
-7. `list_tasks`
+7. `list tasks`
    - List all Browser Use tasks
    - Returns: List of all tasks with their IDs and statuses
 
-8. `check_balance`
+8. `check balance`
    - Check your Browser Use account balance
    - Returns: Account balance information
 
@@ -111,27 +111,9 @@ Add this to your `claude_desktop_config.json`:
 ```json
 "mcpServers": {
   "browser-use": {
-    "command": "uvx",
+    "command": "uv",
     "args": [
-        "--directory",
-        "/path/to/browser-use-mcp",
         "run",
-        "src/server.py",
-        "--api-key",
-        "YOUR_BROWSER_USE_API_KEY"
-    ]
-  }
-}
-```
-
-or 
-
-```json
-"mcpServers": {
-  "browser-use": {
-    "command": "python",
-    "args": [
-        "-u",
         "/path/to/browser-use-mcp/src/server.py",
         "--api-key",
         "YOUR_BROWSER_USE_API_KEY"

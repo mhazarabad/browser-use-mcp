@@ -1,5 +1,7 @@
 # Browser Use MCP server
 
+[![smithery badge](https://smithery.ai/badge/@mhazarabad/browser-use-mcp)](https://smithery.ai/server/@mhazarabad/browser-use-mcp)
+
 ## Overview
 
 A Model Context Protocol server for automating browser tasks using Browser Use API. This server provides tools to run browser automation tasks, monitor task status, and manage running tasks.
@@ -11,6 +13,14 @@ A Model Context Protocol server for automating browser tasks using Browser Use A
 to get a Browser Use API key, go to [Cloud Browser Use](https://cloud.browser-use.com/) and sign up.
 
 ## Installation
+
+### Installing via Smithery
+
+To install browser-use-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@mhazarabad/browser-use-mcp):
+
+```bash
+npx -y @smithery/cli install @mhazarabad/browser-use-mcp --client claude
+```
 
 The package is not published to PyPI. You'll need to clone this repository and run it directly from source.
 

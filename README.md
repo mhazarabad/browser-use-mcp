@@ -29,13 +29,13 @@ git clone https://github.com/mhazarabad/browser-use-mcp.git
 cd browser-use-mcp
 ```
 
-## Running the Server
-
-### Using Python directly
+### Installing via pip
 
 ```bash
-python /path/to/browser-use-mcp/src/server.py --api-key YOUR_BROWSER_USE_API_KEY
+pip install cloud-browser-use-mcp-server
 ```
+
+## Running the Server
 
 ### Using uvx (recommended)
 
@@ -48,13 +48,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Then you can run the server using uvx:
 
 ```bash
-uvx run /path/to/browser-use-mcp/src/server.py --api-key YOUR_BROWSER_USE_API_KEY
-```
-
-Or, for development purposes, you can use:
-
-```bash
-uv run /path/to/browser-use-mcp/src/server.py --api-key YOUR_BROWSER_USE_API_KEY
+uvx cloud-browser-use-mcp-server --api-key YOUR_BROWSER_USE_API_KEY
 ```
 
 ## Tools
@@ -121,10 +115,9 @@ Add this to your `claude_desktop_config.json`:
 ```json
 "mcpServers": {
   "browser-use": {
-    "command": "uv",
+    "command": "uvx",
     "args": [
-        "run",
-        "/path/to/browser-use-mcp/src/server.py",
+        "cloud-browser-use-mcp-server",
         "--api-key",
         "YOUR_BROWSER_USE_API_KEY"
     ]

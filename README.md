@@ -39,21 +39,16 @@ pip install cloud-browser-use-mcp-server
 
 ### Using uvx (recommended)
 
-First, install [uv](https://github.com/astral-sh/uv) if you haven't already:
+
+you can run the server using python:
 
 ```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-Then you can run the server using uvx:
-
-```bash
-uvx cloud-browser-use-mcp-server --api-key YOUR_BROWSER_USE_API_KEY
+python -m cloud_browser_use_mcp_server --api-key YOUR_BROWSER_USE_API_KEY
 ```
 
 ## Tools
 
-1. `run task`
+1. `run_task`
    - Run a Browser Use automation task with instructions and wait for completion
    - Input:
      - `instructions` (string): Instructions for the browser automation task
@@ -61,47 +56,47 @@ uvx cloud-browser-use-mcp-server --api-key YOUR_BROWSER_USE_API_KEY
      - `parameters` (object, optional): Additional parameters for the task
    - Returns: Information about the created task including final output if wait_for_completion is True
 
-2. `get task`
+2. `get_task`
    - Get details of a Browser Use task by ID
    - Input:
      - `task_id` (string): ID of the task to retrieve
    - Returns: Complete task information including steps and output
 
-3. `get task status`
+3. `get_task_status`
    - Get the status of a Browser Use task
    - Input:
      - `task_id` (string): ID of the task to check
    - Returns: Current status of the task
 
-4. `stop task`
+4. `stop_task`
    - Stop a running Browser Use task
    - Input:
      - `task_id` (string): ID of the task to stop
    - Returns: Confirmation of task being stopped
 
-5. `pause task`
+5. `pause_task`
    - Pause a running Browser Use task
    - Input:
      - `task_id` (string): ID of the task to pause
    - Returns: Confirmation of task being paused
 
-6. `resume task`
+6. `resume_task`
    - Resume a paused Browser Use task
    - Input:
      - `task_id` (string): ID of the task to resume
    - Returns: Confirmation of task being resumed
 
-7. `list tasks`
+7. `list_tasks`
    - List all Browser Use tasks
    - Returns: List of all tasks with their IDs and statuses
 
-8. `check balance`
+8. `check_balance`
    - Check your Browser Use account balance
    - Returns: Account balance information
 
 ### Prompts
 
-1. `browser-use-task`
+1. `browser_use_task`
    - Run a Browser Use automation task
    - Input:
      - `instructions` (string): Instructions for the browser automation task
@@ -110,14 +105,15 @@ uvx cloud-browser-use-mcp-server --api-key YOUR_BROWSER_USE_API_KEY
 
 ## Claude Desktop
 
-Add this to your `claude_desktop_config.json`:
+Add this to your `claude_desktop_config.json` after installing it with `pip install cloud-browser-use-mcp-server`:
 
 ```json
 "mcpServers": {
   "browser-use": {
-    "command": "uvx",
+    "command": "python",
     "args": [
-        "cloud-browser-use-mcp-server",
+        "-m",
+        "cloud_browser_use_mcp_server",
         "--api-key",
         "YOUR_BROWSER_USE_API_KEY"
     ]
